@@ -1,5 +1,9 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
+import {  provideForms } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [
+  provideForms()
+ ])
+ .catch((err: any) => console.error(err));
