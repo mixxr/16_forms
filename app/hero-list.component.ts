@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from "@angular/core";
+import {Hero} from "./hero";
 import {HeroSvc} from "./hero-svc";
 
 
@@ -10,7 +11,7 @@ import {HeroSvc} from "./hero-svc";
             <tr>
                 <th *ngFor="let colname of heroSvc.colNames">{{colname | uppercase}}</th>
             </tr>
-            <tr *ngFor="let myItem of heroSvc.list" (click)="select(myItem.id)">   
+            <tr *ngFor="let myItem of list" (click)="select(myItem.id)">   
                 <td>{{myItem.id}}</td>             
                 <td>{{myItem.name}}</td>
                 <td>{{myItem.alterEgo}}</td>
@@ -22,14 +23,17 @@ import {HeroSvc} from "./hero-svc";
 
 export class HeroList{
     @Output() onSelect = new EventEmitter<number>();
-    message = "Fantastic Hero List";
-    
-    constructor(public heroSvc:HeroSvc){}
+    message = "The Fantastic Hero List";
+    list:Hero[];
+    constructor(public heroSvc:HeroSvc){
+        console.log('constructor>hero-list:',this.list);
+    }
 
     ngOnInit() {
-        console.log('hero-list:',this.heroSvc.list);
-        console.log('colNames:', this.heroSvc.colNames);
-        
+        this.heroSvc.getList()
+            .subscribe(
+                list => this.list = list,
+                error => this.message = <any>error);
     }
 
     select(itemId:number){

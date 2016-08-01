@@ -13,7 +13,7 @@ export class HeroFormComponent implements OnChanges{
   @Input() itemId: number;
 
   constructor(public svc:HeroSvc){
-        console.log(svc.list);
+       
   }
 
   ngOnChanges(changes: SimpleChanges) {

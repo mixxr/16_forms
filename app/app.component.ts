@@ -5,6 +5,7 @@ import { HeroList } from './hero-list.component';
 
 @Component({
     selector: 'my-app',
+    //providers: [HTTP_PROVIDERS], // alternative to the bootstrap config
     template: `
         <hero-list (onSelect)="changeItem($event)"></hero-list>
         <hr/>
