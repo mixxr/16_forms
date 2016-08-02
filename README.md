@@ -1,11 +1,11 @@
-# Angular 2 QuickStart Hero 
+# Angular 2 QuickStart Hero with REST AWS integration 
 
 This repository is based on [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html).
 
 It's been extended with 
-1. hero-list component
-2. REST communication with AWS
-3. @Input and @Output communication between siblings (hero-form and hero-list) through the parent
+* hero-list component
+* REST communication with AWS
+* @Input and @Output communication between siblings (hero-form and hero-list) through the parent
 
 ## Prerequisites
 
